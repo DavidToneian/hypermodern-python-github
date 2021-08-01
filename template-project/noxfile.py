@@ -1,8 +1,13 @@
 import nox
 
 
+nox.options.sessions = ("lint", "test")
+
+locations = ["src", "tests", "noxfile.py"]
+
+
 @nox.session()
-def tests(session):
+def test(session):
     pytest_args = session.posargs or ["--cov"]
     session.run("poetry", "install", external=True)
     session.run("pytest", *pytest_args)
@@ -10,6 +15,13 @@ def tests(session):
 
 @nox.session()
 def lint(session):
-    args = session.posargs or ["src", "tests", "noxfile.py"]
-    session.install("flake8")
+    args = session.posargs or locations
+    session.install("flake8", "flake8-black")
     session.run("flake8", *args)
+
+
+@nox.session()
+def black(session):
+    args = session.posargs or locations
+    session.install("black")
+    session.run("black", *args)
