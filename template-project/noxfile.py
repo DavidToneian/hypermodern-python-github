@@ -6,17 +6,41 @@ nox.options.sessions = ("lint", "test")
 locations = ["src", "tests", "noxfile.py"]
 
 
+def install_with_constraints(session, *args, **kwargs):
+    import tempfile
+
+    with tempfile.TemporaryDirectory as tmpdir:
+        filename = tmpdir + "/reqs.txt"
+
+        session.run(
+            "poetry",
+            "export",
+            "--dev",
+            "--format=requirements.txt",
+            f"--output={filename}",
+            external=True,
+        )
+        session.install(f"--constraint={filename}", *args, **kwargs)
+
+
 @nox.session()
 def test(session):
     pytest_args = session.posargs or ["--cov"]
-    session.run("poetry", "install", external=True)
+    session.run("poetry", "install", "--no-dev", external=True)
+    install_with_constraints(
+        session,
+        "coverage[toml]",
+        "pytest",
+        "pytest-cov",
+    )
     session.run("pytest", *pytest_args)
 
 
 @nox.session()
 def lint(session):
     args = session.posargs or locations
-    session.install(
+    install_with_constraints(
+        session,
         "flake8",
         "flake8-bandit",
         "flake8-black",
@@ -29,7 +53,7 @@ def lint(session):
 @nox.session()
 def black(session):
     args = session.posargs or locations
-    session.install("black")
+    install_with_constraints(session, "black")
     session.run("black", *args)
 
 
@@ -48,5 +72,5 @@ def safety(session):
             f"--output={filename}",
             external=True,
         )
-        session.install("safety")
+        install_with_constraints(session, "safety")
         session.run("safety", "check", f"--file={filename}", "--full-report")

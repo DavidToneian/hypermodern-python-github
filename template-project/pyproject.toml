@@ -11,6 +11,13 @@ python = "^3.7"
 pytest = "^6.2.4"
 coverage = {extras = ["toml"], version = "^5.5"}
 pytest-cov = "^2.12.1"
+black = "^21.7b0"
+flake8 = "^3.9.2"
+flake8-bandit = "^2.1.2"
+flake8-black = "^0.2.3"
+flake8-bugbear = "^21.4.3"
+flake8-import-order = "^0.18.1"
+safety = "^1.10.3"
 
 [tool.coverage.paths]
 source = ["src"]
