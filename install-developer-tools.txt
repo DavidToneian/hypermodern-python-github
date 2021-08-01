@@ -1,0 +1,2 @@
+pip install black flake8 pre-commit
+cd template-project && pre-commit install

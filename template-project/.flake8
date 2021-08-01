@@ -6,3 +6,4 @@ max-line-length = 80
 application-import-names = template_project,tests
 import-order-style = google
 per-file-ignores = tests/*:S101
+exclude = .nox

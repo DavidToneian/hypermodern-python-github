@@ -1,0 +1,19 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+-   repo: local
+    hooks:
+    -   id: black
+        name: black
+        entry: python -c 'import os; os.chdir("template-project"); os.execvp("poetry", ("poetry", "run", "black"))' #poetry run black
+        language: system
+        types: [python]
+    -   id: flake8
+        name: flake8
+        entry: python -c 'import os; os.chdir("template-project"); os.execvp("poetry", ("poetry", "run", "flake8"))' #poetry run flake8
+        language: system
+        types: [python]
