@@ -9,7 +9,7 @@ locations = ["src", "tests", "noxfile.py"]
 def install_with_constraints(session, *args, **kwargs):
     import tempfile
 
-    with tempfile.TemporaryDirectory as tmpdir:
+    with tempfile.TemporaryDirectory() as tmpdir:
         filename = tmpdir + "/reqs.txt"
 
         session.run(
