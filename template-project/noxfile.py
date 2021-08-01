@@ -31,3 +31,22 @@ def black(session):
     args = session.posargs or locations
     session.install("black")
     session.run("black", *args)
+
+
+@nox.session()
+def safety(session):
+    import tempfile
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        filename = tmpdir + "/reqs.txt"
+        session.run(
+            "poetry",
+            "export",
+            "--dev",
+            "--format=requirements.txt",
+            "--without-hashes",
+            f"--output={filename}",
+            external=True,
+        )
+        session.install("safety")
+        session.run("safety", "check", f"--file={filename}", "--full-report")
