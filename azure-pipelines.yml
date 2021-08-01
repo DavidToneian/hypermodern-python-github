@@ -10,6 +10,6 @@ steps:
   displayName: 'Set up VM'
 - bash: |
     poetry install
-    poetry run pytest
+    poetry run pytest --cov
   workingDirectory: template-project
   displayName: 'Run pytest'

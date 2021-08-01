@@ -9,6 +9,19 @@ python = "^3.7"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"
+coverage = {extras = ["toml"], version = "^5.5"}
+pytest-cov = "^2.12.1"
+
+[tool.coverage.paths]
+source = ["src"]
+
+[tool.coverage.run]
+branch = true
+source = ["template_project"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
