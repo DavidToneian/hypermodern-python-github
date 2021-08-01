@@ -1,0 +1,10 @@
+pool:
+  vmImage: ubuntu-20.04
+
+steps:
+- bash: |
+    apt-get update
+    apt-get install -y python3.8
+    pip install poetry
+    echo 'Done setting up VM'
+  displayName: 'Set up VM'
