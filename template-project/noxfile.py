@@ -1,7 +1,7 @@
 import nox
 
 
-nox.options.sessions = ("lint", "test")
+nox.options.sessions = ("lint", "mypy", "test")
 
 locations = ["src", "tests", "noxfile.py"]
 
@@ -17,6 +17,7 @@ def install_with_constraints(session, *args, **kwargs):
             "export",
             "--dev",
             "--format=requirements.txt",
+            "--without-hashes",
             f"--output={filename}",
             external=True,
         )
@@ -48,6 +49,13 @@ def lint(session):
         "flake8-import-order",
     )
     session.run("flake8", *args)
+
+
+@nox.session()
+def mypy(session):
+    args = session.posargs or locations
+    install_with_constraints(session, "mypy")
+    session.run("mypy", *args)
 
 
 @nox.session()
