@@ -8,3 +8,6 @@ steps:
     pip install poetry==1.1.7
     echo 'Done setting up VM'
   displayName: 'Set up VM'
+- bash: |
+    poetry run pytest
+  displayName: 'Run pytest'
