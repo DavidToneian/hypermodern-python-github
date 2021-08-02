@@ -11,4 +11,4 @@ steps:
 - bash: |
     nox
   workingDirectory: template-project
-  displayName: 'Run pytest'
+  displayName: 'Run nox'
