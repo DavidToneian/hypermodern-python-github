@@ -5,5 +5,7 @@ max-complexity = 10
 max-line-length = 80
 application-import-names = template_project,tests
 import-order-style = google
-per-file-ignores = tests/*:S101
+per-file-ignores =
+	tests/*:S101,ANN
+	noxfile.py:ANN
 exclude = .nox
