@@ -4,6 +4,7 @@ import nox
 nox.options.sessions = ("lint", "mypy", "test")
 
 locations = ["src", "tests", "noxfile.py"]
+package = "template-project"
 
 
 def install_with_constraints(session, *args, **kwargs):
@@ -82,3 +83,10 @@ def safety(session):
         )
         install_with_constraints(session, "safety")
         session.run("safety", "check", f"--file={filename}", "--full-report")
+
+@nox.session()
+def typeguard(session):
+    args = session.posargs or []
+    session.run("poetry", "install", "--no-dev", external=True)
+    install_with_constraints(session, "pytest", "pytest-mock", "typeguard")
+    session.run("pytest", f"--typeguard-packages={package}", *args)
