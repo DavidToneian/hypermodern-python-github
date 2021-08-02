@@ -12,3 +12,6 @@ steps:
     nox
   workingDirectory: template-project
   displayName: 'Run nox'
+- bash: |
+    nox -s docs
+  displayName: 'Generate documentation'

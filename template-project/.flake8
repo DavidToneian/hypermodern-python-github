@@ -6,6 +6,7 @@ max-line-length = 80
 application-import-names = template_project,tests
 import-order-style = google
 per-file-ignores =
+	docs/conf.py:D100
 	tests/*:S101,ANN,D100,D103,D104
 	noxfile.py:ANN,D100,D103
 exclude = .nox
