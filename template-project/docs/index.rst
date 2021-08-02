@@ -6,6 +6,7 @@ Top-Level Header
    :maxdepth: 1
 
    foo
+   reference
 
 
 Some Section

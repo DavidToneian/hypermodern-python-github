@@ -98,5 +98,6 @@ def typeguard(session):
 
 @nox.session()
 def docs(session):
-    install_with_constraints(session, "sphinx")
-    session.run("sphinx-build", "docs", "docs/_build")
+    session.run("poetry", "install", "--no-dev", external=True)
+    install_with_constraints(session, "sphinx", "sphinx-autodoc-typehints")
+    session.run("sphinx-build", "-W", "docs", "docs/_build")
