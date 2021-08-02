@@ -9,7 +9,6 @@ steps:
     echo 'Done setting up VM'
   displayName: 'Set up VM'
 - bash: |
-    poetry install
-    poetry run pytest --cov
+    nox
   workingDirectory: template-project
   displayName: 'Run pytest'
