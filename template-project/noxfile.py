@@ -85,6 +85,7 @@ def safety(session):
         install_with_constraints(session, "safety")
         session.run("safety", "check", f"--file={filename}", "--full-report")
 
+
 @nox.session()
 def typeguard(session):
     args = session.posargs or []
