@@ -20,6 +20,7 @@ flake8-import-order = "^0.18.1"
 safety = "^1.10.3"
 mypy = "^0.910"
 typeguard = "^2.12.1"
+flake8-annotations = "^2.6.2"
 
 [tool.coverage.paths]
 source = ["src"]
