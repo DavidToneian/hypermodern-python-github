@@ -23,6 +23,7 @@ typeguard = "^2.12.1"
 flake8-annotations = "^2.6.2"
 flake8-docstrings = "^1.6.0"
 flake8-rst-docstrings = "^0.2.3"
+darglint = "^1.8.0"
 
 [tool.coverage.paths]
 source = ["src"]

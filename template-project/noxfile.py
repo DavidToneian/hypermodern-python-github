@@ -50,6 +50,7 @@ def lint(session):
         "flake8-bugbear",
         "flake8-import-order",
         "flake8-rst-docstrings",
+        "darglint",
     )
     session.run("flake8", *args)
 
