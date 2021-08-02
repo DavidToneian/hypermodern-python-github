@@ -49,6 +49,7 @@ def lint(session):
         "flake8-black",
         "flake8-bugbear",
         "flake8-import-order",
+        "flake8-rst-docstrings",
     )
     session.run("flake8", *args)
 
