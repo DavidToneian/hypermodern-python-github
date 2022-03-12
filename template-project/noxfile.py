@@ -1,7 +1,7 @@
 import nox
 
 
-nox.options.sessions = ("lint", "mypy", "test")
+nox.options.sessions = ("lint", "mypy", "safety", "black", "typeguard", "test")
 
 locations = ["src", "tests", "noxfile.py"]
 package = "template-project"
