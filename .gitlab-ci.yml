@@ -34,6 +34,6 @@ release-pypi-test:
     - cd template-project
     - poetry config repositories.testpypi https://test.pypi.org/legacy/
     - poetry config pypi-token.testpypi $TESTPYPI_TOKEN
-    - poetry version $(poetry version | awk '{print $2}').dev.$(date +%Y%m%d+%s)
+    - poetry version $(poetry version | awk '{print $2}').dev.$(date +%Y%m%d%s)
     - poetry build
     - poetry publish -r testpypi
