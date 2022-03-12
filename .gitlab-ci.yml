@@ -1,4 +1,9 @@
+stages:
+  - test
+  - package
+
 .docker-template: &docker-template
+  stage: test
   tags:
     - docker
   image: $DOCKER_IMAGE
@@ -7,12 +12,28 @@
     - apt-get install -y python3.8 python3-pip
     - pip install --upgrade pip==21.2.2
     - pip install poetry==1.1.7 nox==2021.6.12
-  script:
-    - cd template-project
-    - nox
-    - nox -s docs
 
 docker-ubuntu:20.04:
   variables:
     DOCKER_IMAGE: ubuntu:20.04
   <<: *docker-template
+  script:
+    - cd template-project
+    - nox
+    - nox -s docs
+
+release-pypi-test:
+  stage: package
+  only:
+    refs:
+      - master
+  variables:
+    DOCKER_IMAGE: ubuntu:20.04
+  <<: *docker-template
+  script:
+    - cd template-project
+    - poetry config repositories.testpypi https://test.pypi.org/legacy/
+    - poetry config pypi-token.testpypi $TESTPYPI_TOKEN
+    - poetry version $(poetry version | awk '{print $2}').dev.$(date +%Y%m%d+%s)
+    - poetry build
+    - poetry publish -r testpypi
