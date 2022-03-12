@@ -1,0 +1,17 @@
+.docker-template: &docker-template
+  tags:
+    - docker
+  image: $DOCKER_IMAGE
+  before_script:
+    - sudo apt-get update
+    - sudo apt-get install -y python3.8
+    - pip install poetry==1.1.7 nox==2021.6.12
+  script:
+    - cd template-project
+    - nox
+    - nox -s docs
+
+docker-ubuntu:20.04:
+  variables:
+    DOCKER_IMAGE: ubuntu:20.04
+  <<: *docker-template
