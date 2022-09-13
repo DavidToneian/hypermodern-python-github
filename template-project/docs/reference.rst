@@ -5,9 +5,9 @@ Reference
     :local:
     :backlinks: none
 
+.. autosummary::
+	:toctree: _autosummary
+	:template: custom-module-template.rst
+	:recursive:
 
-template_project.mymodule
--------------------------
-
-.. automodule:: template_project.mymodule
-   :members:
+    template_project

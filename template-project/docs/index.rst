@@ -7,6 +7,7 @@ Top-Level Header
 
    foo
    reference
+   _autosummary/template_project
 
 
 Some Section
