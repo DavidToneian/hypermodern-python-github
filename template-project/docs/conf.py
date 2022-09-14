@@ -23,6 +23,13 @@ autodoc_inherit_docstrings = True
 set_type_checking_flag = True
 add_module_names = False
 
+templates_path = ["_templates"]
+
+
 html_theme = "sphinx_rtd_theme"
 
-templates_path = ["_templates"]
+# See: https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html
+html_theme_options = {
+    "collapse_navigation": False,
+    "navigation_depth": 4,
+}
