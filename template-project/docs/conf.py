@@ -10,7 +10,6 @@ extensions = [
     "sphinx_rtd_theme",
 ]
 
-# Autosummary use inspired by: https://stackoverflow.com/a/62613202
 autosummary_generate = True
 
 html_theme = "sphinx_rtd_theme"

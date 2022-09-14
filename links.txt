@@ -1,9 +1,13 @@
 Sphinx Autosummary:
 https://stackoverflow.com/a/62613202
 
+
 How to get poetry venv to be in the project directory:
 https://stackoverflow.com/a/64434542
 In short: run
 poetry config virtualenvs.in-project true
+(this is for a global setting; for a local one, use `config --local`, which will
+result in a `poetry.toml` setting being set just as is committed to this
+project)
 and then
 poetry install

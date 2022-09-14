@@ -1,3 +1,4 @@
+https://cjolowicz.github.io/posts/hypermodern-python-01-setup/
 https://medium.com/@cjolowicz/hypermodern-python-d44485d9d769
 https://github.com/cjolowicz/hypermodern-python
 https://github.com/cjolowicz/cookiecutter-hypermodern-python
