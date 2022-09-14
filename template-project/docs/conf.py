@@ -6,11 +6,22 @@ project = "template-project"
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.viewcode",
     "sphinx_autodoc_typehints",
     "sphinx_rtd_theme",
 ]
 
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3/", None),
+}
+
 autosummary_generate = True
+autoclass_content = "both"
+html_show_sourcelink = False
+autodoc_inherit_docstrings = True
+set_type_checking_flag = True
+add_module_names = False
 
 html_theme = "sphinx_rtd_theme"
 

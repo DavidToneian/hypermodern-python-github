@@ -5,9 +5,9 @@ Top-Level Header
    :hidden:
    :maxdepth: 1
 
+   Home Page <self>
    foo
-   reference
-   _autosummary/template_project
+   Reference <_autosummary/template_project>
 
 
 Some Section

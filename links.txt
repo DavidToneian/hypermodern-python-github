@@ -1,5 +1,6 @@
 Sphinx Autosummary:
 https://stackoverflow.com/a/62613202
+https://github.com/JamesALeedham/Sphinx-Autosummary-Recursion
 
 
 How to get poetry venv to be in the project directory:

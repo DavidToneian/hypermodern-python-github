@@ -1,3 +1,5 @@
+.. _foo-section-label:
+
 Foo Section
 ___________
 
