@@ -5,6 +5,14 @@ ignore =
     ANN101,
     # Missing type annotation for cls in classmethod:
     ANN102,
+    # One-line docstring should fit on one line with quotes:
+    D200,
+    # No blank lines allowed after function docstring:
+    D202,
+    # 1 blank line required between summary line and description:
+    D205,
+    # First line should end with a period:
+    D400,
     # Others:
     E023,E501,W503
 max-complexity = 10
@@ -15,7 +23,9 @@ per-file-ignores =
 	docs/conf.py:D100,F401
 	tests/*:S101,ANN,D100,D103,D104
 	noxfile.py:ANN,D100,D103
-exclude = .nox
+exclude =
+	.nox
+	.venv
 
 # Allow Sphinx RST roles; inspired by:
 # https://github.com/peterjc/flake8-rst-docstrings/pull/16

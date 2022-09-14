@@ -43,6 +43,10 @@ class NestedChild(NestedClass):
     """Class deriving from :obj:`NestedClass`."""
 
     def __init__(self) -> None:
+        """
+        Construct stuff.
+        """
+
         super().__init__(123)
 
     @staticmethod
