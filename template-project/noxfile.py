@@ -105,4 +105,5 @@ def docs(session):
         "sphinx-autodoc-typehints",
         "sphinx-rtd-theme",
     )
+    session.run("rm", "-rf", "docs/_build", "docs/_autosummary", external=True)
     session.run("sphinx-build", "-W", "docs", "docs/_build")
