@@ -23,7 +23,7 @@ test-docker-ubuntu:20.04:
     - nox -s docs
   artifacts:
    paths:
-    template-project/docs/_build
+    - template-project/docs/_build
 
 release-pypi-test:
   stage: package
