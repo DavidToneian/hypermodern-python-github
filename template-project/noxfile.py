@@ -29,12 +29,7 @@ def install_with_constraints(session, *args, **kwargs):
 def test(session):
     pytest_args = session.posargs or ["--cov"]
     session.run("poetry", "install", "--no-dev", external=True)
-    install_with_constraints(
-        session,
-        "coverage[toml]",
-        "pytest",
-        "pytest-cov",
-    )
+    install_with_constraints(session, "coverage[toml]", "pytest", "pytest-cov")
     session.run("pytest", *pytest_args)
 
 
@@ -100,10 +95,7 @@ def typeguard(session):
 def docs(session):
     session.run("poetry", "install", "--no-dev", external=True)
     install_with_constraints(
-        session,
-        "sphinx",
-        "sphinx-autodoc-typehints",
-        "sphinx-rtd-theme",
+        session, "sphinx", "sphinx-autodoc-typehints", "sphinx-rtd-theme"
     )
     session.run("rm", "-rf", "docs/_build", "docs/_autosummary", external=True)
     session.run("sphinx-build", "-W", "docs", "docs/_build")

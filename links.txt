@@ -1,0 +1,9 @@
+Sphinx Autosummary:
+https://stackoverflow.com/a/62613202
+
+How to get poetry venv to be in the project directory:
+https://stackoverflow.com/a/64434542
+In short: run
+poetry config virtualenvs.in-project true
+and then
+poetry install
