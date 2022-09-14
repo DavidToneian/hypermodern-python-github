@@ -1,6 +1,12 @@
 [flake8]
 select = ANN,B,B9,BLK,C,D,DAR,E,F,I,RST,S,W
-ignore = E023,E501,W503
+ignore =
+    # Missing type annotation for self in method:
+    ANN101,
+    # Missing type annotation for cls in classmethod:
+    ANN102,
+    # Others:
+    E023,E501,W503
 max-complexity = 10
 max-line-length = 80
 application-import-names = template_project,tests
