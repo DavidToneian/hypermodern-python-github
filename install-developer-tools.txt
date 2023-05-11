@@ -1,2 +1,0 @@
-pip install black flake8 pre-commit
-mv .git/hooks .git/old-hooks && cd template-project && pre-commit install
