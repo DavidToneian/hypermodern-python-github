@@ -5,7 +5,7 @@ description = ""
 authors = []
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 importlib-metadata = {version = "^4.11.2", python = "<3.8"}
 
 [tool.poetry.dev-dependencies]
@@ -23,13 +23,13 @@ flake8-annotations = "^2.6.2"
 flake8-docstrings = "^1.6.0"
 flake8-rst-docstrings = "^0.2.3"
 darglint = "^1.8.0"
-Sphinx = "^4.1.2"
 sphinx-autodoc-typehints = "^1.12.0"
 dparse = "^0.6.0"
 
 [tool.poetry.group.dev.dependencies]
 safety = "^2.3.5"
 pytest = "^7.3.1"
+sphinx = "^7.0.0"
 
 [tool.coverage.paths]
 source = ["src"]
