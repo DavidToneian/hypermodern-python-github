@@ -19,6 +19,6 @@ If you want to install git pre-commit hooks to locally run `black` and `flake8`
 prior to committing, execute the following once:
 
 ```
-poetry install
-poetry run pip install nox nox-poetry
+pip install black flake8 pre-commit
+mv .git/hooks .git/old-hooks && cd template-project && pre-commit install
 ```
